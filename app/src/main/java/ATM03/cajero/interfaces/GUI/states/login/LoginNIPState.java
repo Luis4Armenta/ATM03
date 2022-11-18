@@ -2,7 +2,7 @@ package ATM03.cajero.interfaces.GUI.states.login;
 
 import javax.swing.JLabel;
 
-import ATM03.cajero.interfaces.GUI.tests.GUI;
+import ATM03.cajero.interfaces.GUI.GUI;
 import ATM03.cajero.interfaces.GUI.states.State;
 
 public class LoginNIPState extends State {

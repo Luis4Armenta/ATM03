@@ -3,7 +3,7 @@ package ATM03.cajero.interfaces.GUI.states;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import ATM03.cajero.interfaces.GUI.tests.GUI;
+import ATM03.cajero.interfaces.GUI.GUI;
 
 
 public abstract class ActionListenerWithContext implements ActionListener{

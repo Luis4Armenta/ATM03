@@ -3,7 +3,7 @@ package ATM03.cajero.interfaces.GUI.states;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ATM03.cajero.interfaces.GUI.tests.GUI;
+import ATM03.cajero.interfaces.GUI.GUI;
 
 public abstract class State extends JPanel {
   public JTextField input;
