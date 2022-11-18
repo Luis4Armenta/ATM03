@@ -2,7 +2,6 @@ package ATM03.cajero.models.transacciones;
 
 import ATM03.database.HashMapBinFileCuentasRepository;
 import ATM03.database.ICuentasRepository;
-import ATM03.models.Cuenta;
 
 public abstract class Transaccion {
   public ICuentasRepository database;
