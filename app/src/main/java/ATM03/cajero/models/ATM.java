@@ -11,9 +11,9 @@ public class ATM {
   private int sesion;
   private boolean login;
 
-  private static final int RETIRO = 1;
-  private static final int DEPOSITO = 2;
-  private static final int CONSULTAR_SALDO = 3;
+  private static final int CONSULTAR_SALDO = 1;
+  private static final int RETIRO = 2;
+  private static final int DEPOSITO = 3;
 
   public ATM() {
     this.sesion = 0;
