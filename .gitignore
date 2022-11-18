@@ -7,3 +7,4 @@ build
 .vscode
 app/bin
 archivo.bin
+GUI/tests
