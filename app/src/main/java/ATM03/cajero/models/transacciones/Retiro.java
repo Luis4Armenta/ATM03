@@ -14,6 +14,7 @@ public class Retiro extends Transaccion {
     if (result.length > 0) {
       Cuenta cuenta = result[0];
 
+      cuenta.cargar(monto);
       return this.database.actualizarCuenta(cuenta);
     } else {
       return false;
