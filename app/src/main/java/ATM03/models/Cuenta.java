@@ -10,7 +10,7 @@ public class Cuenta implements Serializable
 
    // el constructor de Cuenta inicializa los atributos
    public Cuenta( int elNumeroDeCuenta, int elNIP, 
-      double elSaldoDisponible, double elSaldoTotal )
+      double elSaldoDisponible)
    {
       numeroCuenta = elNumeroDeCuenta;
       nip = elNIP;
