@@ -7,4 +7,4 @@ build
 .vscode
 app/bin
 archivo.bin
-GUI/tests
+app/src/main/java/ATM03/cajero/interfaces/GUI/tests/*
