@@ -4,10 +4,6 @@
  */
 package ATM03.cajero.interfaces.GUI;
 
-import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
-import ATM03.cajero.models.ATM;
-import ATM03.cajero.models.helpers.Autentificador;
-
 /**
  *
  * @author luigi

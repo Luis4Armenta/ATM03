@@ -1,6 +1,5 @@
 package ATM03.cajero.interfaces.GUI.states.login;
 
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 

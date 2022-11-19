@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
 import ATM03.cajero.models.ATM;
