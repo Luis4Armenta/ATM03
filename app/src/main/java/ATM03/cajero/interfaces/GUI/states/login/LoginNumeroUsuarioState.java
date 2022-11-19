@@ -1,8 +1,10 @@
 package ATM03.cajero.interfaces.GUI.states.login;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import ATM03.cajero.interfaces.GUI.GUI;
+import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 
 public class LoginNumeroUsuarioState extends State {
@@ -15,6 +17,7 @@ public class LoginNumeroUsuarioState extends State {
     setSize(500, 400);
 
     initComponents();
+    this.colocarComportamiento();
   }
 
   private void initComponents() {
@@ -55,7 +58,40 @@ public class LoginNumeroUsuarioState extends State {
 
   @Override
   public State nextState() {
-    System.out.println("cambiando de estado");
     return new LoginNIPState(context);
+  }
+
+  private void colocarComportamiento() {
+    ActionListenerWithContext defaultComportament = new ActionListenerWithContext(context) {
+      @Override
+      public void action() {
+        continuar();
+      }
+    };
+
+    this.context.opcion1Btn.addActionListener(defaultComportament);
+    this.context.opcion2Btn.addActionListener(defaultComportament);
+    this.context.opcion3Btn.addActionListener(defaultComportament);
+    this.context.opcion4Btn.addActionListener(defaultComportament);
+    this.context.opcion5Btn.addActionListener(defaultComportament);
+    this.context.opcion6Btn.addActionListener(defaultComportament);
+  }
+
+  @Override
+  public boolean continuar() {
+    String in = this.input.getText();
+    if (in.length() == 5) {
+      this.context.colocarSesionActual(Integer.parseInt(obtenerInput()));
+      context.changeState(nextState());
+      return true;
+    } else {
+      JOptionPane.showMessageDialog(context.pantalla, "Tu numero de cuenta debe ser de 5 caracteres...");
+      return false;
+    }
+  }
+
+  @Override
+  public void cancelar() {
+    this.input.setText("");    
   }
 }

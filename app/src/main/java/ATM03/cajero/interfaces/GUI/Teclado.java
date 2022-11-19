@@ -4,16 +4,22 @@
  */
 package ATM03.cajero.interfaces.GUI;
 
+import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
+import ATM03.cajero.models.ATM;
+import ATM03.cajero.models.helpers.Autentificador;
+
 /**
  *
  * @author luigi
  */
 public class Teclado extends javax.swing.JPanel {
+    public EventManager events;
 
     /**
      * Creates new form Teclado
      */
     public Teclado() {
+        this.events = new EventManager("numero", "continuar", "cancelar", "limpiar");
         initComponents();
     }
 
@@ -232,55 +238,66 @@ public class Teclado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 3);
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 1);
+
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 2);
+
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num6ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 6);
+
     }//GEN-LAST:event_num6ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 4);
+
+
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 5);
+
     }//GEN-LAST:event_num5ActionPerformed
 
     private void num9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num9ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 9);
+
     }//GEN-LAST:event_num9ActionPerformed
 
     private void num8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num8ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 8);
+
     }//GEN-LAST:event_num8ActionPerformed
 
     private void num7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num7ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 7);
+
     }//GEN-LAST:event_num7ActionPerformed
 
     private void num0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num0ActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("numero", 0);
+
     }//GEN-LAST:event_num0ActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        // TODO add your handling code here:
+      this.events.notify("cancelar", 1);
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
-        // TODO add your handling code here:
+        this.events.notify("limpiar", 1);
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         // TODO add your handling code here:
+        this.events.notify("continuar", 1);
     }//GEN-LAST:event_continuarActionPerformed
 
 

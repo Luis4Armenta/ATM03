@@ -1,8 +1,11 @@
 package ATM03.cajero.interfaces.GUI.states.login;
 
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import ATM03.cajero.interfaces.GUI.GUI;
+import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 
 public class LoginNIPState extends State {
@@ -15,6 +18,7 @@ public class LoginNIPState extends State {
     setSize(500, 400);
 
     initComponents();
+    this.colocarComportamiento();
   }
 
   private void initComponents() {
@@ -59,5 +63,46 @@ public class LoginNIPState extends State {
     return null;
   }
 
-  
+  private void colocarComportamiento() {
+    ActionListenerWithContext defaultComportament = new ActionListenerWithContext(context) {
+      @Override
+      public void action() {
+        if (!continuar()) {
+          JOptionPane.showMessageDialog(context.pantalla, "Usuario o contraseña incorrectos...");
+        }
+      }
+    };
+
+    this.context.opcion1Btn.addActionListener(defaultComportament);
+    this.context.opcion2Btn.addActionListener(defaultComportament);
+    this.context.opcion3Btn.addActionListener(defaultComportament);
+    this.context.opcion4Btn.addActionListener(defaultComportament);
+    this.context.opcion5Btn.addActionListener(defaultComportament);
+    this.context.opcion6Btn.addActionListener(defaultComportament);
+  }
+
+  @Override
+  public boolean continuar() {
+    int nip = Integer.parseInt(this.obtenerInput());
+
+    boolean login = this.context.service.loggin(
+                          this.context.obtenerSesionActual(),
+                          nip
+                        );
+    if (login) {
+      System.out.println("Login correcto!");
+      // this.context.changeState(nextState());
+      return true;
+    } else {
+      JOptionPane.showMessageDialog(context.pantalla, "Usuario o contraseña incorrectos...");
+      this.context.colocarSesionActual(0);
+      this.context.changeState(new LoginNumeroUsuarioState(context));
+      return false;
+    }
+  }
+
+  @Override
+  public void cancelar() {
+    this.context.changeState(new LoginNumeroUsuarioState(context));
+  }
 }

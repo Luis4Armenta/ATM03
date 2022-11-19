@@ -10,23 +10,29 @@ import javax.swing.JPanel;
 import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
+import ATM03.cajero.models.ATM;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.border.LineBorder;
 
-public class GUI {
-  JFrame frame;
-  JButton opcion1Btn;
-  JButton opcion2Btn;
-  JButton opcion3Btn;
-  JButton opcion4Btn;
-  JButton opcion5Btn;
-  JButton opcion6Btn;
-  JPanel pantalla;
-  Teclado teclado;
+public class GUI implements IEventListener{
+  private int sesionActual;
+  public ATM service;
+  public JFrame frame;
+  public JButton opcion1Btn;
+  public JButton opcion2Btn;
+  public JButton opcion3Btn;
+  public JButton opcion4Btn;
+  public JButton opcion5Btn;
+  public JButton opcion6Btn;
+  public JPanel pantalla;
+  public Teclado teclado;
 
   public GUI() {
+    this.service = new ATM();
+
     this.frame = new JFrame();
     this.opcion1Btn = new JButton("Opcion 1");
     this.opcion2Btn = new JButton("Opcion 2");
@@ -45,17 +51,23 @@ public class GUI {
     this.configurarBotones();
     this.configurarPantalla();
     this.configurarTeclado();
+    
+    this.teclado.events.subscribe("numero", this);
+    this.teclado.events.subscribe("cancelar", this);
+    this.teclado.events.subscribe("continuar", this);
+    this.teclado.events.subscribe("limpiar", this);
 
-    this.opcion1Btn.addActionListener(new ActionListenerWithContext(this) {
-
-      @Override
-      public void action() {
-        context.changeState(context.getState().nextState());
-      } 
-    });
 
     this.frame.pack();
     this.frame.setVisible(true);
+  }
+
+  public void colocarSesionActual(int sesion) {
+    this.sesionActual = sesion;
+  }
+
+  public int obtenerSesionActual() {
+    return this.sesionActual;
   }
 
   public void changeState(State state) {
@@ -212,5 +224,27 @@ public class GUI {
     tecladoLayoutSettings.insets = new java.awt.Insets(10, 10, 10, 10);
 
     this.frame.add(this.teclado, tecladoLayoutSettings);
+  }
+
+  @Override
+  public void update(String eventType, int numero) {
+    switch (eventType) {
+      case "numero":
+        this.getState().input.setText((this.getState().obtenerInput() + numero));
+        break;
+      case "cancelar":
+        this.getState().cancelar();
+      break;
+      case "continuar":
+        if (this.getState().continuar()) {
+          System.out.println("exito");
+        }
+      break;
+      case "limpiar":
+        this.getState().input.setText("");
+      default:
+        break;
+    }
+    
   }
 }

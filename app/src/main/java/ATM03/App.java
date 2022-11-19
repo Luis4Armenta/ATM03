@@ -3,12 +3,38 @@
  */
 package ATM03;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import ATM03.cajero.interfaces.GUI.GUI;
+import ATM03.cajero.interfaces.text.ATMText;
+import ATM03.cajero.models.consultas.Consulta;
+import ATM03.database.HashMapBinFileCuentasRepository;
+import ATM03.database.ICuentasRepository;
+import ATM03.ejecutivo.ManejadorCuentas;
+import ATM03.models.Cuenta;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+public class App {
+  public String getGreeting() {
+    return "Hello World!";
+  }
+
+  public static void main(String[] args) {
+    // System.out.println(new App().getGreeting());
+//     ManejadorCuentas manager = new ManejadorCuentas();
+// 
+//     manager.crearCuenta(new Cuenta(12345, 54321, 70000));
+//     manager.crearCuenta(new Cuenta(7777, 77777, 60000));
+// 
+//     ICuentasRepository repo = HashMapBinFileCuentasRepository.obtenerInstancia("archivo.bin");
+// 
+//     Cuenta[] result = repo.obtenerCUenta(12345);
+//     if (result.length > 0) {
+//       Cuenta cuenta = result[0];
+// 
+//       System.out.println("Saldo de la cuenta 12345: " + cuenta.obtenerSaldoDisponible());
+//     } else {
+//       System.out.println("No se encontró la cuenta");
+//     }
+
+    // new ATMText().run();
+    new GUI();
+  }
 }
