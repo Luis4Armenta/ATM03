@@ -8,3 +8,4 @@ build
 app/bin
 archivo.bin
 app/src/main/java/ATM03/cajero/interfaces/GUI/tests/*
+.idea
