@@ -56,9 +56,11 @@ public class GUI implements IEventListener{
     this.teclado.events.subscribe("continuar", this);
     this.teclado.events.subscribe("limpiar", this);
 
-
     this.frame.pack();
+    this.frame.setLocationRelativeTo(null);
     this.frame.setVisible(true);
+    this.frame.setAlwaysOnTop(true);
+    this.frame.requestFocus();
   }
 
   public void colocarSesionActual(int sesion) {
@@ -95,7 +97,6 @@ public class GUI implements IEventListener{
   private void configurarFrame() {
     // Configuraciones básicas del frame
     this.frame.setDefaultCloseOperation(3);
-    this.frame.setLocationRelativeTo(null);
     this.frame.setTitle("Cajero automatico");
     
     // Colocando layout
