@@ -1,10 +1,13 @@
 package ATM03.cajero.models.transacciones;
 
+import ATM03.cajero.interfaces.GUI.hardware.dispensador.DispensadorEfectivo;
 import ATM03.models.Cuenta;
 
 public class Retiro extends Transaccion {
-  public Retiro(int numeroCuentaEjecutor, int monto) {
+  private DispensadorEfectivo dispensador;
+  public Retiro(int numeroCuentaEjecutor, int monto, DispensadorEfectivo dispensador) {
     super(numeroCuentaEjecutor, monto);
+    this.dispensador = dispensador;
   }
 
   @Override
@@ -14,8 +17,12 @@ public class Retiro extends Transaccion {
     if (result.length > 0) {
       Cuenta cuenta = result[0];
 
-      cuenta.cargar(monto);
-      return this.database.actualizarCuenta(cuenta);
+      if (this.dispensador.dispensar(monto)) {
+        cuenta.cargar(monto);
+        return this.database.actualizarCuenta(cuenta);
+      } else {
+        return false;
+      }
     } else {
       return false;
     }

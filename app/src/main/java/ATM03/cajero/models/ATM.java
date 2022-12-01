@@ -1,5 +1,8 @@
 package ATM03.cajero.models;
 
+import ATM03.cajero.interfaces.GUI.hardware.dispensador.Billete;
+import ATM03.cajero.interfaces.GUI.hardware.dispensador.Billetera;
+import ATM03.cajero.interfaces.GUI.hardware.dispensador.DispensadorEfectivo;
 import ATM03.cajero.models.consultas.Consulta;
 import ATM03.cajero.models.consultas.SolicitudSaldo;
 import ATM03.cajero.models.helpers.Autentificador;
@@ -15,9 +18,16 @@ public class ATM {
   private static final int RETIRO = 2;
   private static final int DEPOSITO = 3;
 
+  private DispensadorEfectivo dispensador;
+
   public ATM() {
     this.sesion = 0;
-    this.login = false;  
+    this.login = false;
+    this.dispensador = new DispensadorEfectivo(
+            new Billetera(new Billete(100), 2000),
+            new Billetera(new Billete(200), 1500),
+            new Billetera(new Billete(500), 1000)
+    );
   }
 
   public String consultar(int option) {
@@ -55,7 +65,7 @@ public class ATM {
   private Transaccion generarTransaccion(int opcion, int monto) {
     switch (opcion) {
       case RETIRO:
-          return new Retiro(this.sesion, monto);
+          return new Retiro(this.sesion, monto, this.dispensador);
       case DEPOSITO:
           return new Deposito(this.sesion, monto);
       default:
