@@ -50,7 +50,7 @@ public class RetiroState extends State {
         gridBagConstraints.insets = new java.awt.Insets(10, 2, 10, 10);
         add(input, gridBagConstraints);
 
-        indicacion.setText("Digita la cantidad a retirar:");
+        indicacion.setText("Digita la cantidad a retirar (o 0 para cancelar):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -93,6 +93,11 @@ public class RetiroState extends State {
   public boolean continuar() {
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
+    if (monto <= 0) {
+        this.context.changeState(new MenuState(this.context));
+        JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
+        return false;
+    }
 
     if (this.context.service.ejecutar(2, monto)) {
       JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
