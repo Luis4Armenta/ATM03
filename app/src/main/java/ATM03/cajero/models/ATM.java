@@ -3,6 +3,7 @@ package ATM03.cajero.models;
 import ATM03.cajero.interfaces.GUI.hardware.dispensador.Billete;
 import ATM03.cajero.interfaces.GUI.hardware.dispensador.Billetera;
 import ATM03.cajero.interfaces.GUI.hardware.dispensador.DispensadorEfectivo;
+import ATM03.cajero.interfaces.GUI.hardware.ranura.RanuraDeposito;
 import ATM03.cajero.models.consultas.Consulta;
 import ATM03.cajero.models.consultas.SolicitudSaldo;
 import ATM03.cajero.models.helpers.Autentificador;
@@ -19,6 +20,7 @@ public class ATM {
   private static final int DEPOSITO = 3;
 
   private DispensadorEfectivo dispensador;
+  private RanuraDeposito ranuraDeposito;
 
   public ATM() {
     this.sesion = 0;
@@ -28,6 +30,7 @@ public class ATM {
             new Billetera(new Billete(200), 1500),
             new Billetera(new Billete(500), 1000)
     );
+    this.ranuraDeposito = new RanuraDeposito();
   }
 
   public String consultar(int option) {
@@ -67,7 +70,7 @@ public class ATM {
       case RETIRO:
           return new Retiro(this.sesion, monto, this.dispensador);
       case DEPOSITO:
-          return new Deposito(this.sesion, monto);
+          return new Deposito(this.sesion, monto, this.ranuraDeposito);
       default:
           return null;
     }

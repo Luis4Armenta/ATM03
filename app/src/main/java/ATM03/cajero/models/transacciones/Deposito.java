@@ -1,10 +1,13 @@
 package ATM03.cajero.models.transacciones;
 
+import ATM03.cajero.interfaces.GUI.hardware.ranura.RanuraDeposito;
 import ATM03.models.Cuenta;
 
 public class Deposito extends Transaccion {
-  public Deposito(int numeroCuenta, int monto) {
+  private RanuraDeposito ranura;
+  public Deposito(int numeroCuenta, int monto, RanuraDeposito ranura) {
     super(numeroCuenta, monto);
+    this.ranura = ranura;
   }
 
   @Override
@@ -15,7 +18,7 @@ public class Deposito extends Transaccion {
       Cuenta cuenta = result[0];
 
       cuenta.abonar(this.monto);
-      return this.database.actualizarCuenta(cuenta);
+      return this.database.actualizarCuenta(cuenta) && this.ranura.seRecibioEfectivo();
     } else {
       return false;
     }
