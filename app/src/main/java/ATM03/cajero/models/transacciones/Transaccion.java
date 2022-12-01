@@ -8,8 +8,8 @@ public abstract class Transaccion {
   public int numeroCuentaEjecutor;
   public int monto;
 
-  public Transaccion(int numeroCuentaEjecutor, int monto) {
-    this.database = HashMapBinFileCuentasRepository.obtenerInstancia("archivo.bin");
+  public Transaccion(ICuentasRepository database, int numeroCuentaEjecutor, int monto) {
+    this.database = database;
     this.numeroCuentaEjecutor = numeroCuentaEjecutor;
     this.monto = monto;
   }

@@ -8,8 +8,8 @@ public abstract class Consulta {
   public int numeroCuentaEjecutor;
   public int monto;
 
-  public Consulta(int numeroCuentaEjecutor) {
-    this.database = HashMapBinFileCuentasRepository.obtenerInstancia("archivo.bin");
+  public Consulta(ICuentasRepository database, int numeroCuentaEjecutor) {
+    this.database = database;
     this.numeroCuentaEjecutor = numeroCuentaEjecutor;
   }
 

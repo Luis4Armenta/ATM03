@@ -10,6 +10,8 @@ import ATM03.cajero.models.helpers.Autentificador;
 import ATM03.cajero.models.transacciones.Deposito;
 import ATM03.cajero.models.transacciones.Retiro;
 import ATM03.cajero.models.transacciones.Transaccion;
+import ATM03.database.HashMapBinFileCuentasRepository;
+import ATM03.database.ICuentasRepository;
 
 public class ATM {
   private int sesion;
@@ -21,6 +23,7 @@ public class ATM {
 
   private DispensadorEfectivo dispensador;
   private RanuraDeposito ranuraDeposito;
+  private ICuentasRepository database;
 
   public ATM() {
     this.sesion = 0;
@@ -31,7 +34,7 @@ public class ATM {
             new Billetera(new Billete(500), 1000)
     );
     this.ranuraDeposito = new RanuraDeposito();
-    this
+    this.database = HashMapBinFileCuentasRepository.obtenerInstancia("archivo.bin");
   }
 
   public String consultar(int option) {
@@ -69,9 +72,9 @@ public class ATM {
   private Transaccion generarTransaccion(int opcion, int monto) {
     switch (opcion) {
       case RETIRO:
-          return new Retiro(this.sesion, monto, this.dispensador);
+          return new Retiro(this.database, this.sesion, monto, this.dispensador);
       case DEPOSITO:
-          return new Deposito(this.sesion, monto, this.ranuraDeposito);
+          return new Deposito(this.database, this.sesion, monto, this.ranuraDeposito);
       default:
           return null;
     }
@@ -80,7 +83,7 @@ public class ATM {
   private Consulta generarConsulta(int opcion) {
     switch (opcion) {
       case CONSULTAR_SALDO:
-        return new SolicitudSaldo(this.sesion);
+        return new SolicitudSaldo(this.database, this.sesion);
       default:
         return null;
     }

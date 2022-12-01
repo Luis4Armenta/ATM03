@@ -1,12 +1,13 @@
 package ATM03.cajero.models.transacciones;
 
 import ATM03.cajero.interfaces.GUI.hardware.ranura.RanuraDeposito;
+import ATM03.database.ICuentasRepository;
 import ATM03.models.Cuenta;
 
 public class Deposito extends Transaccion {
   private RanuraDeposito ranura;
-  public Deposito(int numeroCuenta, int monto, RanuraDeposito ranura) {
-    super(numeroCuenta, monto);
+  public Deposito(ICuentasRepository database, int numeroCuenta, int monto, RanuraDeposito ranura) {
+    super(database, numeroCuenta, monto);
     this.ranura = ranura;
   }
 

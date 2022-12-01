@@ -1,12 +1,13 @@
 package ATM03.cajero.models.transacciones;
 
 import ATM03.cajero.interfaces.GUI.hardware.dispensador.DispensadorEfectivo;
+import ATM03.database.ICuentasRepository;
 import ATM03.models.Cuenta;
 
 public class Retiro extends Transaccion {
   private DispensadorEfectivo dispensador;
-  public Retiro(int numeroCuentaEjecutor, int monto, DispensadorEfectivo dispensador) {
-    super(numeroCuentaEjecutor, monto);
+  public Retiro(ICuentasRepository database, int numeroCuentaEjecutor, int monto, DispensadorEfectivo dispensador) {
+    super(database, numeroCuentaEjecutor, monto);
     this.dispensador = dispensador;
   }
 

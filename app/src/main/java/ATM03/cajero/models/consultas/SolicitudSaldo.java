@@ -1,11 +1,12 @@
 package ATM03.cajero.models.consultas;
 
+import ATM03.database.ICuentasRepository;
 import ATM03.models.Cuenta;
 
 public class SolicitudSaldo extends Consulta {
 
-  public SolicitudSaldo(int numeroCuentaEjecutor) {
-    super(numeroCuentaEjecutor);
+  public SolicitudSaldo(ICuentasRepository database, int numeroCuentaEjecutor) {
+    super(database, numeroCuentaEjecutor);
   }
 
   @Override
