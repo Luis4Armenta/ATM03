@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
+import ATM03.cajero.interfaces.text.Pantalla;
 import ATM03.cajero.models.ATM;
 
 import java.awt.Color;
@@ -29,8 +30,8 @@ public class GUI implements IEventListener{
   public JPanel pantalla;
   public Teclado teclado;
 
-  public GUI() {
-    this.service = new ATM();
+  public GUI(ATM service, Pantalla pantalla, Teclado teclado ) {
+    this.service = service;
 
     this.frame = new JFrame();
     this.opcion1Btn = new JButton("Opcion 1");
@@ -40,7 +41,7 @@ public class GUI implements IEventListener{
     this.opcion5Btn = new JButton("Opcion 5");
     this.opcion6Btn = new JButton("Opcion 6");
     this.pantalla = new JPanel();
-    this.teclado = new Teclado();
+    this.teclado = teclado;
 
     this.init();
   }

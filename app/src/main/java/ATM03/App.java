@@ -4,7 +4,10 @@
 package ATM03;
 
 import ATM03.cajero.interfaces.GUI.GUI;
+import ATM03.cajero.interfaces.GUI.Teclado;
 import ATM03.cajero.interfaces.text.ATMText;
+import ATM03.cajero.interfaces.text.Pantalla;
+import ATM03.cajero.models.ATM;
 import ATM03.cajero.models.consultas.Consulta;
 import ATM03.database.HashMapBinFileCuentasRepository;
 import ATM03.database.ICuentasRepository;
@@ -35,6 +38,6 @@ public class App {
 //     }
 
     // new ATMText().run();
-    new GUI();
+    new GUI(new ATM(), new Pantalla(), new Teclado());
   }
 }

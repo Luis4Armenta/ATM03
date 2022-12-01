@@ -31,6 +31,7 @@ public class ATM {
             new Billetera(new Billete(500), 1000)
     );
     this.ranuraDeposito = new RanuraDeposito();
+    this
   }
 
   public String consultar(int option) {
