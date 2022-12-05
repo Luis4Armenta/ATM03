@@ -8,6 +8,7 @@ import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.deposito.DepositoState;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
+import ATM03.cajero.interfaces.GUI.states.retiro.RetiroMenuState;
 import ATM03.cajero.interfaces.GUI.states.retiro.RetiroState;
 
 public class MenuState extends State {
@@ -105,7 +106,8 @@ public class MenuState extends State {
     this.context.opcion1Btn.addActionListener(new ActionListenerWithContext(context) {
       @Override
       public void action() {
-        this.context.changeState(new RetiroState(context));
+//        this.context.changeState(new RetiroState(context));
+          this.context.changeState(new RetiroMenuState(context));
       }
     });
     this.context.opcion2Btn.addActionListener(new ActionListenerWithContext(context) {

@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import ATM03.cajero.interfaces.GUI.GUI;
 import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
-import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
 import ATM03.cajero.interfaces.GUI.states.menu.MenuState;
 
 public class RetiroState extends State {
@@ -94,8 +93,8 @@ public class RetiroState extends State {
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
     if (monto <= 0) {
-        this.context.changeState(new MenuState(this.context));
-        JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
+        this.context.changeState(new RetiroMenuState(this.context));
+        JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado el retiro");
         return false;
     }
 
@@ -111,6 +110,6 @@ public class RetiroState extends State {
 
   @Override
   public void cancelar() {
-    this.context.changeState(new MenuState(context));
+    this.context.changeState(new RetiroState(context));
   }
 }
