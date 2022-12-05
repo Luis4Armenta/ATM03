@@ -27,6 +27,9 @@ public class GUI implements IEventListener{
   public JButton opcion4Btn;
   public JButton opcion5Btn;
   public JButton opcion6Btn;
+  public JButton tomarBilletesBtn;
+  public JButton dejarBilletesBtn;
+  public JButton cobrarBtn;
   public JPanel pantalla;
   public Teclado teclado;
 
@@ -40,6 +43,8 @@ public class GUI implements IEventListener{
     this.opcion4Btn = new JButton("Opcion 4");
     this.opcion5Btn = new JButton("Opcion 5");
     this.opcion6Btn = new JButton("Opcion 6");
+    this.tomarBilletesBtn = new JButton("Tomar billetes");
+    this.dejarBilletesBtn = new JButton("Poner billetes");
     this.pantalla = new JPanel();
     this.teclado = teclado;
 
@@ -51,6 +56,8 @@ public class GUI implements IEventListener{
     this.configurarBotones();
     this.configurarPantalla();
     this.configurarTeclado();
+    this.configurarDejarBilletesBtn();
+    this.configurarTomarBilletesBtn();
     
     this.teclado.events.subscribe("numero", this);
     this.teclado.events.subscribe("cancelar", this);
@@ -219,12 +226,39 @@ public class GUI implements IEventListener{
     tecladoLayoutSettings.gridx = 1;
     tecladoLayoutSettings.gridy = 3;
     tecladoLayoutSettings.gridwidth = 1;
-    tecladoLayoutSettings.gridheight = 1;
+    tecladoLayoutSettings.gridheight = 6;
     tecladoLayoutSettings.ipadx = 30;
     tecladoLayoutSettings.ipady = 30;
     tecladoLayoutSettings.insets = new java.awt.Insets(10, 10, 10, 10);
 
     this.frame.add(this.teclado, tecladoLayoutSettings);
+  }
+
+  private void configurarTomarBilletesBtn() {
+    GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
+    optionBtnLayoutSettings.gridx = 6;
+    optionBtnLayoutSettings.gridy = 4;
+    optionBtnLayoutSettings.gridwidth = 1;
+    optionBtnLayoutSettings.ipadx = 30;
+    optionBtnLayoutSettings.ipady = 10;
+    optionBtnLayoutSettings.insets = new java.awt.Insets(70, 10, 10, 10);
+    optionBtnLayoutSettings.anchor = java.awt.GridBagConstraints.CENTER;
+
+    this.frame.getContentPane().add(this.tomarBilletesBtn, optionBtnLayoutSettings);
+  }
+
+  private void configurarDejarBilletesBtn() {
+    GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
+    optionBtnLayoutSettings.gridx = 6;
+    optionBtnLayoutSettings.gridy = 5;
+    optionBtnLayoutSettings.gridwidth = 1;
+    optionBtnLayoutSettings.ipadx = 30;
+    optionBtnLayoutSettings.ipady = 10;
+    optionBtnLayoutSettings.insets = new java.awt.Insets(70, 10, 10, 10);
+    optionBtnLayoutSettings.anchor = java.awt.GridBagConstraints.CENTER;
+
+
+    this.frame.getContentPane().add(this.dejarBilletesBtn, optionBtnLayoutSettings);
   }
 
   @Override
