@@ -103,7 +103,7 @@ public class DepositoState extends State {
       this.context.colocarSesionActual(0);
       this.context.service.cerrarSesion();
 
-      this.context.changeState(new LoginNumeroUsuarioState(context));
+      this.context.changeState(new MenuState(context));
       return true;
     } else {
       JOptionPane.showMessageDialog(this.context.pantalla, "No se ha podido completar su deposito... D:");
