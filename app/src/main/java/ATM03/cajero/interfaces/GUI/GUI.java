@@ -274,8 +274,8 @@ public class GUI implements IEventListener{
     this.dejarBilletesBtn.addActionListener(new ActionListenerWithContext(this) {
       @Override
       public void action() {
-        this.context.tomarBilletesBtn.setEnabled(
-          !this.context.tomarBilletesBtn.isEnabled()
+        this.context.dejarBilletesBtn.setEnabled(
+          !this.context.dejarBilletesBtn.isEnabled()
         );
       }
     });
