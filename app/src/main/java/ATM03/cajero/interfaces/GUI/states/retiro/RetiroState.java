@@ -13,7 +13,6 @@ import ATM03.cajero.interfaces.GUI.states.menu.MenuState;
 
 public class RetiroState extends State {
   private Timer timer;
-  private Contador contador;
   private JLabel Bienvenida;
   private JLabel indicacion;
   private JLabel jLabel1;
@@ -78,7 +77,8 @@ public class RetiroState extends State {
         TimerTask task = new Contador(this.context) {
           @Override
           public void run() {
-            this.context.changeState(new RetiroMenuState(context));
+            this.context.changeState(new MenuState(context));
+            JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado el retiro por inactividad...");
           }
         };
     timer.schedule(task, ms);
