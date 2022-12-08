@@ -8,6 +8,7 @@ import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
 import ATM03.cajero.interfaces.GUI.states.menu.MenuState;
+import java.awt.event.ActionListener;
 
 public class RetiroMenuState extends State {
   private JLabel Bienvenida;
@@ -32,6 +33,7 @@ public class RetiroMenuState extends State {
       JLabel indicacion2 = new javax.swing.JLabel();
       JLabel indicacion3 = new javax.swing.JLabel();
       JLabel indicacion4 = new javax.swing.JLabel();
+      JLabel indicacion5 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -94,6 +96,23 @@ public class RetiroMenuState extends State {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(12, 40, 12, 0);
         add(indicacion4, gridBagConstraints);
+        
+        indicacion5.setText(" Regresar (6");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 40, 12, 0);
+        add(indicacion5, gridBagConstraints);
+
+        this.context.opcion1Btn.setEnabled(true);
+        this.context.opcion2Btn.setEnabled(true);
+        this.context.opcion3Btn.setEnabled(true);
+        this.context.opcion4Btn.setEnabled(true);
+        this.context.opcion5Btn.setEnabled(true);
+        this.context.opcion6Btn.setEnabled(true);
   }
 
   @Override
@@ -195,7 +214,12 @@ public class RetiroMenuState extends State {
             this.context.changeState(new RetiroState(context));
         }
     });
-    this.context.opcion6Btn.addActionListener(defaultComportament);
+    this.context.opcion6Btn.addActionListener(new ActionListenerWithContext(context) {
+        @Override
+        public void action() {
+            this.context.changeState(new MenuState(context));
+        }
+    });
   }
 
   @Override

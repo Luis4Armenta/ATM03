@@ -55,6 +55,13 @@ public class LoginNIPState extends State {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
     gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 5);
     add(indicacion, gridBagConstraints);
+
+    this.context.opcion1Btn.setEnabled(false);
+    this.context.opcion2Btn.setEnabled(false);
+    this.context.opcion3Btn.setEnabled(false);
+    this.context.opcion4Btn.setEnabled(false);
+    this.context.opcion5Btn.setEnabled(false);
+    this.context.opcion6Btn.setEnabled(false);
   }
 
   @Override

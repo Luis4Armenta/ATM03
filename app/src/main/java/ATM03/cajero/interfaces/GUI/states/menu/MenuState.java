@@ -87,6 +87,14 @@ public class MenuState extends State {
     gridBagConstraints.weighty = 1.0;
     gridBagConstraints.insets = new java.awt.Insets(12, 40, 12, 0);
     add(indicacion3, gridBagConstraints);
+
+    
+    this.context.opcion1Btn.setEnabled(true);
+    this.context.opcion2Btn.setEnabled(true);
+    this.context.opcion3Btn.setEnabled(true);
+    this.context.opcion4Btn.setEnabled(true);
+    this.context.opcion5Btn.setEnabled(false);
+    this.context.opcion6Btn.setEnabled(false);
   }
 
   @Override

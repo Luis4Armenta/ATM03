@@ -69,6 +69,14 @@ public class RetiroState extends State {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(jLabel1, gridBagConstraints);
 
+        
+        this.context.opcion1Btn.setEnabled(false);
+        this.context.opcion2Btn.setEnabled(false);
+        this.context.opcion3Btn.setEnabled(false);
+        this.context.opcion4Btn.setEnabled(false);
+        this.context.opcion5Btn.setEnabled(false);
+        this.context.opcion6Btn.setEnabled(false);
+
         this.iniciarCounter(120000);
   }
 
@@ -113,6 +121,11 @@ public class RetiroState extends State {
 
   @Override
   public boolean continuar() {
+    if (this.context.getState().obtenerInput().isEmpty()) {
+      JOptionPane.showMessageDialog(this.context.pantalla, "Por favor digita la cantidad a depositar");
+      return false;
+    }
+
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
     if (monto <= 0) {
