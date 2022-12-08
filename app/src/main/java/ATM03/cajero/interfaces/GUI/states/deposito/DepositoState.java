@@ -111,9 +111,6 @@ public class DepositoState extends State {
       this.context.dejarBilletesBtn.setEnabled(true);
 
       JOptionPane.showMessageDialog(this.context.pantalla, "Gracias por su deposito. c:");
-      
-      this.context.colocarSesionActual(0);
-      this.context.service.cerrarSesion();
 
       this.context.changeState(new MenuState(context));
       return true;
