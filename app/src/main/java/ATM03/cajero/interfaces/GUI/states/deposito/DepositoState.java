@@ -93,7 +93,11 @@ public class DepositoState extends State {
   public boolean continuar() {
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
+    
     if (this.context.service.ejecutar(3, monto)) {
+      
+      this.context.dejarBilletesBtn.setEnabled(true);
+
       JOptionPane.showMessageDialog(this.context.pantalla, "Gracias por su deposito. c:");
       
       this.context.colocarSesionActual(0);

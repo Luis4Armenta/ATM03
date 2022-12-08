@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import ATM03.cajero.interfaces.GUI.states.ActionListenerWithContext;
 import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.login.LoginNumeroUsuarioState;
 import ATM03.cajero.interfaces.text.Pantalla;
@@ -244,6 +245,17 @@ public class GUI implements IEventListener{
     optionBtnLayoutSettings.insets = new java.awt.Insets(70, 10, 10, 10);
     optionBtnLayoutSettings.anchor = java.awt.GridBagConstraints.CENTER;
 
+    this.tomarBilletesBtn.setEnabled(false);
+
+    this.tomarBilletesBtn.addActionListener(new ActionListenerWithContext(this) {
+      @Override
+      public void action() {
+        this.context.tomarBilletesBtn.setEnabled(
+          !this.context.tomarBilletesBtn.isEnabled()
+        );
+      }
+    });
+
     this.frame.getContentPane().add(this.tomarBilletesBtn, optionBtnLayoutSettings);
   }
 
@@ -257,6 +269,16 @@ public class GUI implements IEventListener{
     optionBtnLayoutSettings.insets = new java.awt.Insets(70, 10, 10, 10);
     optionBtnLayoutSettings.anchor = java.awt.GridBagConstraints.CENTER;
 
+    this.dejarBilletesBtn.setEnabled(false);
+
+    this.dejarBilletesBtn.addActionListener(new ActionListenerWithContext(this) {
+      @Override
+      public void action() {
+        this.context.tomarBilletesBtn.setEnabled(
+          !this.context.tomarBilletesBtn.isEnabled()
+        );
+      }
+    });
 
     this.frame.getContentPane().add(this.dejarBilletesBtn, optionBtnLayoutSettings);
   }

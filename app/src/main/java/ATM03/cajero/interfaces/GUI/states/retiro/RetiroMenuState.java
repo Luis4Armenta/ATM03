@@ -122,6 +122,7 @@ public class RetiroMenuState extends State {
         }
 
         if (this.context.service.ejecutar(2, monto)) {
+          this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
         } else {
@@ -140,6 +141,7 @@ public class RetiroMenuState extends State {
         }
 
         if (this.context.service.ejecutar(2, monto)) {
+          this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
         } else {
@@ -158,6 +160,7 @@ public class RetiroMenuState extends State {
         }
 
         if (this.context.service.ejecutar(2, monto)) {
+          this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
         } else {
@@ -177,6 +180,7 @@ public class RetiroMenuState extends State {
         }
 
         if (this.context.service.ejecutar(2, monto)) {
+          this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
         } else {
