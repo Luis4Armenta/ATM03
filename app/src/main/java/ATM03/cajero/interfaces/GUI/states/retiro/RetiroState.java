@@ -1,5 +1,8 @@
 package ATM03.cajero.interfaces.GUI.states.retiro;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -9,6 +12,8 @@ import ATM03.cajero.interfaces.GUI.states.State;
 import ATM03.cajero.interfaces.GUI.states.menu.MenuState;
 
 public class RetiroState extends State {
+  private Timer timer;
+  private Contador contador;
   private JLabel Bienvenida;
   private JLabel indicacion;
   private JLabel jLabel1;
@@ -64,6 +69,24 @@ public class RetiroState extends State {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(jLabel1, gridBagConstraints);
+
+        this.iniciarCounter(120000);
+  }
+
+  private void iniciarCounter(int ms) {
+    this.timer = new Timer();
+        TimerTask task = new Contador(this.context) {
+          @Override
+          public void run() {
+            this.context.changeState(new RetiroMenuState(context));
+          }
+        };
+    timer.schedule(task, ms);
+  }
+
+  private void cancelarTimer() {
+    this.timer.cancel();
+    this.timer.purge();
   }
 
   @Override
@@ -93,16 +116,20 @@ public class RetiroState extends State {
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
     if (monto <= 0) {
+        this.cancelarTimer();
         this.context.changeState(new RetiroMenuState(this.context));
         JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado el retiro");
         return false;
     }
 
     if (this.context.service.ejecutar(2, monto)) {
+      this.cancelarTimer();
       JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
       this.context.changeState(new MenuState(context));
       return true;
     } else {
+      this.cancelarTimer();
+      this.iniciarCounter(120000);
       JOptionPane.showMessageDialog(this.context.pantalla, "No se ha podido completar el retiro... D:");
       return false;
     }
@@ -110,6 +137,7 @@ public class RetiroState extends State {
 
   @Override
   public void cancelar() {
-    this.context.changeState(new RetiroState(context));
+    this.cancelarTimer();
+    this.context.changeState(new RetiroMenuState(context));
   }
 }
