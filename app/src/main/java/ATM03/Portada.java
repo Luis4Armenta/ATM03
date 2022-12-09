@@ -45,7 +45,7 @@ public class Portada extends javax.swing.JFrame {
         continueButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Portada / Convertidor de unidades / Equipo 3");
+        setTitle("Portada / ATM-03 / Equipo 3");
 
         mainPanel.setLayout(new java.awt.GridBagLayout());
 
