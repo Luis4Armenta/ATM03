@@ -38,7 +38,7 @@ public class MenuState extends State {
 
     setLayout(new java.awt.GridBagLayout());
 
-    Bienvenida.setText("Menú de trasnacciones");
+    Bienvenida.setText("Men\u00fa de trasnacciones");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 0;

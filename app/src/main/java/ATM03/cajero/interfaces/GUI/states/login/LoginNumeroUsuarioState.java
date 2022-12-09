@@ -47,7 +47,7 @@ public class LoginNumeroUsuarioState extends State {
     gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
     add(input, gridBagConstraints);
 
-    indicacion.setText("Digita tu numero de cuenta");
+    indicacion.setText("Digita tu n\u00famero de cuenta");
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 0;
     gridBagConstraints.gridy = 1;
