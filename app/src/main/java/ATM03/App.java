@@ -13,6 +13,8 @@ import ATM03.database.HashMapBinFileCuentasRepository;
 import ATM03.database.ICuentasRepository;
 import ATM03.ejecutivo.ManejadorCuentas;
 import ATM03.models.Cuenta;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class App {
   public String getGreeting() {
@@ -38,6 +40,19 @@ public class App {
 //     }
 
     // new ATMText().run();
-    new GUI(new ATM(), new Pantalla(), new Teclado());
+    //new GUI(new ATM(), new Pantalla(), new Teclado());
+
+
+    Portada titlePage = new Portada();
+        
+        titlePage.setVisible(true);
+        
+        titlePage.continueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                titlePage.setVisible(false);
+                new GUI(new ATM(), new Pantalla(), new Teclado());
+            }
+        });
   }
 }
