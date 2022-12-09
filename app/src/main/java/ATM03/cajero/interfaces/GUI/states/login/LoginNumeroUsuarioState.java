@@ -61,6 +61,9 @@ public class LoginNumeroUsuarioState extends State {
     this.context.opcion4Btn.setEnabled(false);
     this.context.opcion5Btn.setEnabled(false);
     this.context.opcion6Btn.setEnabled(false);
+
+    this.context.dejarBilletesBtn.setEnabled(false);
+    this.context.tomarBilletesBtn.setEnabled(false);
   }
 
   @Override

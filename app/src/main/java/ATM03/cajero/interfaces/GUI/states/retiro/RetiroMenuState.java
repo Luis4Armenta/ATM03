@@ -113,6 +113,9 @@ public class RetiroMenuState extends State {
         this.context.opcion4Btn.setEnabled(true);
         this.context.opcion5Btn.setEnabled(true);
         this.context.opcion6Btn.setEnabled(true);
+
+        this.context.dejarBilletesBtn.setEnabled(false);
+        this.context.tomarBilletesBtn.setEnabled(false);
   }
 
   @Override

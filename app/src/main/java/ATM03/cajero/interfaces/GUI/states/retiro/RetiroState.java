@@ -76,6 +76,9 @@ public class RetiroState extends State {
         this.context.opcion4Btn.setEnabled(false);
         this.context.opcion5Btn.setEnabled(false);
         this.context.opcion6Btn.setEnabled(false);
+        
+        this.context.dejarBilletesBtn.setEnabled(false);
+        this.context.tomarBilletesBtn.setEnabled(false);
 
         this.iniciarCounter(120000);
   }

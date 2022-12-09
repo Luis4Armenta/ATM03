@@ -94,6 +94,9 @@ public class DepositoState extends State {
     this.context.opcion4Btn.addActionListener(defaultComportament);
     this.context.opcion5Btn.addActionListener(defaultComportament);
     this.context.opcion6Btn.addActionListener(defaultComportament);
+
+    this.context.dejarBilletesBtn.setEnabled(false);
+    this.context.tomarBilletesBtn.setEnabled(false);
   }
 
   @Override
