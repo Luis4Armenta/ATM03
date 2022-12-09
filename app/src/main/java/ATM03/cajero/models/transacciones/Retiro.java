@@ -8,10 +8,15 @@ import ATM03.models.Cuenta;
 
 public class Retiro extends Transaccion {
 
-    private DispensadorEfectivo dispensadorEfectivo; // referencia al dispensadorEfectivo de efectivo
+    private final DispensadorEfectivo dispensadorEfectivo; // referencia al dispensadorEfectivo de efectivo
 
     // constructor de Retiro
-    public Retiro(ICuentasRepository baseDatosBanco, int numeroCuentaATM, int monto, DispensadorEfectivo dispensadorEfectivo) {
+    public Retiro(
+            ICuentasRepository baseDatosBanco,
+            int numeroCuentaATM,
+            int monto,
+            DispensadorEfectivo dispensadorEfectivo
+    ) {
         // inicializa las variables de la superclase
         super(baseDatosBanco, numeroCuentaATM, monto);
         

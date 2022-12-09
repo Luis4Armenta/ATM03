@@ -9,7 +9,7 @@ import ATM03.cajero.interfaces.GUI.hardware.dispensador.Billetera;
 import ATM03.cajero.interfaces.GUI.hardware.dispensador.DispensadorEfectivo;
 import ATM03.cajero.interfaces.GUI.hardware.ranura.RanuraDeposito;
 import ATM03.cajero.models.consultas.Consulta;
-import ATM03.cajero.models.consultas.baseDatosBanco;
+import ATM03.cajero.models.consultas.SolicitudSaldo;
 import ATM03.cajero.models.helpers.Autenticador;
 import ATM03.cajero.models.transacciones.Deposito;
 import ATM03.cajero.models.transacciones.Retiro;
@@ -27,9 +27,9 @@ public class ATM {
     private static final int DEPOSITO = 3;
 
     
-    private DispensadorEfectivo dispensadorEfectivo; // dispensador de efectivo del ATM
-    private RanuraDeposito ranuraDeposito; // ranura de depósito del ATM
-    private ICuentasRepository baseDatosBanco; //  base de datos de información de las cuentas
+    private final DispensadorEfectivo dispensadorEfectivo; // dispensador de efectivo del ATM
+    private final RanuraDeposito ranuraDeposito; // ranura de depósito del ATM
+    private final ICuentasRepository baseDatosBanco; //  base de datos de información de las cuentas
 
     // el constructor sin argumentos de ATM inicializa las variables de instancia
     public ATM() {
@@ -107,7 +107,7 @@ public class ATM {
         // determina qué tipo de Transaccion crear   
         switch (opcion) {
             case CONSULTAR_SALDO: // crea una nueva transacción SolicitudSaldo
-                return new baseDatosBanco(this.baseDatosBanco, this.numeroCuentaActual);
+                return new SolicitudSaldo(this.baseDatosBanco, this.numeroCuentaActual);
             default:
                 return null;
         }

@@ -30,3 +30,5 @@ public abstract class Transaccion {
     // realiza la transacción (cada subclase sobrescribe este método)
     public abstract boolean ejecutar();
 }
+
+

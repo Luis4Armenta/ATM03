@@ -6,10 +6,10 @@ package ATM03.cajero.models.consultas;
 import ATM03.database.ICuentasRepository;
 import ATM03.models.Cuenta;
 
-public class baseDatosBanco extends Consulta {
+public class SolicitudSaldo extends Consulta {
     
     // constructor de SolicitudSaldo
-    public baseDatosBanco(ICuentasRepository baseDatosBanco, int numeroCuenta) {
+    public SolicitudSaldo(ICuentasRepository baseDatosBanco, int numeroCuenta) {
         super(baseDatosBanco, numeroCuenta);
     } // fin del constructor de SolicitudSaldo
 

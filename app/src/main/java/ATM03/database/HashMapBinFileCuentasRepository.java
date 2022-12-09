@@ -12,7 +12,7 @@ import ATM03.models.Cuenta;
 
 
 public class HashMapBinFileCuentasRepository implements ICuentasRepository {
-  private File archivo;
+  private final File archivo;
   private static HashMapBinFileCuentasRepository instancia = null;
   private HashMap<Integer, Cuenta> database;
 

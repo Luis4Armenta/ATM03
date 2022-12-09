@@ -8,7 +8,7 @@ import ATM03.models.Cuenta;
 
 public class Deposito extends Transaccion {
 
-    private RanuraDeposito ranuraDeposito; // referencia a la ranura de depósito
+    private final RanuraDeposito ranuraDeposito; // referencia a la ranura de depósito
 
     // constructor de Deposito
     public Deposito(ICuentasRepository database, int numeroCuenta, int monto, RanuraDeposito ranura) {

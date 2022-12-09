@@ -19,7 +19,7 @@ public class DispensadorEfectivo {
             // recorremos todas nuestros contenedores de billetes
             for (Billetera billetera : this.billeteras) { 
 
-                // Si un contenedor de billetes est√° vac√≠o simplemente lo saltamos
+                // Si un contenedor de billetes est· vacÌo simplemente lo saltamos
                 if (billetera.obtenerTotal() <= 0) {
                     continue; // salta al siguiente ciclo del for.
                 }
