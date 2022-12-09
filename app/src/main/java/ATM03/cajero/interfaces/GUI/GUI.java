@@ -293,9 +293,7 @@ public class GUI implements IEventListener{
         this.getState().cancelar();
       break;
       case "continuar":
-        if (this.getState().continuar()) {
-          System.out.println("exito");
-        }
+        this.getState().continuar();
       break;
       case "limpiar":
         this.getState().input.setText("");

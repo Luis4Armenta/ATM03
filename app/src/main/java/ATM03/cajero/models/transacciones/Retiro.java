@@ -30,7 +30,7 @@ public class Retiro extends Transaccion {
             Cuenta cuenta = result[0]; // selecciona la unica cuenta que hay
 
             // comprueba si el dispensador de efectivo tiene suficiente dinero
-            if (this.dispensadorEfectivo.dispensar(monto)) {
+            if (this.dispensadorEfectivo.dispensarEfectivo(monto)) {
                 // actualiza la cuenta implicada para reflejar el saldo
                 cuenta.cargar(monto);
                 

@@ -17,7 +17,7 @@ public class DispensadorEfectivoDebe {
 
       DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera100, billetera200, billetera500);
 
-      boolean respuesta = dispensador.dispensar(150);
+      boolean respuesta = dispensador.dispensarEfectivo(150);
 
       assertFalse(respuesta);
   }
@@ -30,7 +30,7 @@ public class DispensadorEfectivoDebe {
 
       DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-      boolean respuesta = dispensador.dispensar(5000);
+      boolean respuesta = dispensador.dispensarEfectivo(5000);
 
       assertFalse(respuesta);
   }
@@ -43,7 +43,7 @@ public class DispensadorEfectivoDebe {
 
       DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-      boolean respuesta = dispensador.dispensar(100);
+      boolean respuesta = dispensador.dispensarEfectivo(100);
 
       assertTrue(respuesta);
   }
@@ -56,7 +56,7 @@ public class DispensadorEfectivoDebe {
 
       DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-      boolean respuesta = dispensador.dispensar(100);
+      boolean respuesta = dispensador.dispensarEfectivo(100);
 
     assertFalse(respuesta);
   }
@@ -68,7 +68,7 @@ public class DispensadorEfectivoDebe {
 
       DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-      boolean respuesta = dispensador.dispensar(200);
+      boolean respuesta = dispensador.dispensarEfectivo(200);
 
       assertTrue(respuesta);
   }
@@ -80,7 +80,7 @@ public class DispensadorEfectivoDebe {
 
         DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-        boolean respuesta = dispensador.dispensar(200);
+        boolean respuesta = dispensador.dispensarEfectivo(200);
 
         assertFalse(respuesta);
     }
@@ -93,7 +93,7 @@ public class DispensadorEfectivoDebe {
 
         DispensadorEfectivo dispensador = new DispensadorEfectivo(billetera500, billetera200, billetera100);
 
-        boolean respuesta = dispensador.dispensar(700);
+        boolean respuesta = dispensador.dispensarEfectivo(700);
 
         assertFalse(respuesta);
     }
