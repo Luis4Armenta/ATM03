@@ -140,7 +140,7 @@ public class RetiroMenuState extends State {
             JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
         }
 
-        if (this.context.service.ejecutar(2, monto)) {
+        if (this.context.service.realizarTransacciones(2, monto)) {
           this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
@@ -159,7 +159,7 @@ public class RetiroMenuState extends State {
             JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
         }
 
-        if (this.context.service.ejecutar(2, monto)) {
+        if (this.context.service.realizarTransacciones(2, monto)) {
           this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
@@ -178,7 +178,7 @@ public class RetiroMenuState extends State {
             JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
         }
 
-        if (this.context.service.ejecutar(2, monto)) {
+        if (this.context.service.realizarTransacciones(2, monto)) {
           this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
@@ -198,7 +198,7 @@ public class RetiroMenuState extends State {
             JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
         }
 
-        if (this.context.service.ejecutar(2, monto)) {
+        if (this.context.service.realizarTransacciones(2, monto)) {
           this.context.tomarBilletesBtn.setEnabled(true);
           JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
           this.context.changeState(new MenuState(context));
@@ -238,7 +238,7 @@ public class RetiroMenuState extends State {
         JOptionPane.showMessageDialog(this.context.pantalla, "Se ha cancelado la transacción");
     }
 
-    if (this.context.service.ejecutar(2, monto)) {
+    if (this.context.service.realizarTransacciones(2, monto)) {
       JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");
       this.context.changeState(new MenuState(context));
     } else {

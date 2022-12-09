@@ -106,7 +106,7 @@ public class DepositoState extends State {
     int monto = Integer.parseInt(this.context.getState().obtenerInput());
 
     
-    if (this.context.service.ejecutar(3, monto)) {
+    if (this.context.service.realizarTransacciones(3, monto)) {
       
       this.context.dejarBilletesBtn.setEnabled(true);
 

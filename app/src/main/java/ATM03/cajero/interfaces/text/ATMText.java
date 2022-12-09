@@ -46,7 +46,7 @@ public class ATMText {
       pantalla.mostrarMensaje( "\nEscriba su NIP: " );
       int nip = teclado.obtenerEntrada();
 
-      this.usuarioAutentificado = this.ATM.loggin(numeroCuenta, nip);
+      this.usuarioAutentificado = this.ATM.autenticarUsuario(numeroCuenta, nip);
       
       if (this.usuarioAutentificado) {
         this.numeroCuentaActual = numeroCuenta;
@@ -68,7 +68,7 @@ public class ATMText {
       switch (seleccionMenuPrincipal) {
         case SOLICITUD_SALDO:
 
-          int saldoDisponible = (int) Double.parseDouble(this.ATM.consultar(SOLICITUD_SALDO));
+          int saldoDisponible = (int) Double.parseDouble(this.ATM.RealizarConsultas(SOLICITUD_SALDO));
 
           // muestra la informaci?n del saldo en la pantalla
           pantalla.mostrarLineaMensaje( "\nInformacion de saldo:" );
@@ -83,7 +83,7 @@ public class ATMText {
             int monto = mostrarMenuDeMontos();
 
             if (monto != -1) {
-              exito = this.ATM.ejecutar(RETIRO, monto);
+              exito = this.ATM.realizarTransacciones(RETIRO, monto);
   
               if (exito) {
                 pantalla.mostrarLineaMensaje( 
@@ -111,7 +111,7 @@ public class ATMText {
             pantalla.mostrarLineaMensaje( "." );
 
             
-            boolean result = this.ATM.ejecutar(DEPOSITO, monto);
+            boolean result = this.ATM.realizarTransacciones(DEPOSITO, monto);
             
             if (result) {
               pantalla.mostrarLineaMensaje( "\n Se ha recibido correctamente su deposito, gracias. :)" );

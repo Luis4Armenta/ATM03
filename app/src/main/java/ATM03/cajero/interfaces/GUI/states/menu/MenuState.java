@@ -127,7 +127,7 @@ public class MenuState extends State {
     this.context.opcion3Btn.addActionListener(new ActionListenerWithContext(context) {
       @Override
       public void action() {
-        JOptionPane.showMessageDialog(this.context.pantalla, this.context.service.consultar(1));
+        JOptionPane.showMessageDialog(this.context.pantalla, this.context.service.RealizarConsultas(1));
       }
     });
     this.context.opcion4Btn.addActionListener(

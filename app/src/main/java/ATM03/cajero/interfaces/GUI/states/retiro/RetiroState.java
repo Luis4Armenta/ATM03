@@ -135,7 +135,7 @@ public class RetiroState extends State {
         return false;
     }
 
-    if (this.context.service.ejecutar(2, monto)) {
+    if (this.context.service.realizarTransacciones(2, monto)) {
       this.context.tomarBilletesBtn.setEnabled(true);
       this.cancelarTimer();
       JOptionPane.showMessageDialog(this.context.pantalla, "Se ha compleado el retiro, no olvides tomar tu dinero.");

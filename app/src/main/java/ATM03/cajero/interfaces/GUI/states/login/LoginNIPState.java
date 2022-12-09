@@ -92,7 +92,7 @@ public class LoginNIPState extends State {
   public boolean continuar() {
     int nip = Integer.parseInt(this.obtenerInput());
 
-    boolean login = this.context.service.loggin(
+    boolean login = this.context.service.autenticarUsuario(
                           this.context.obtenerSesionActual(),
                           nip
                         );
