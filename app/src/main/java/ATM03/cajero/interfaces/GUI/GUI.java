@@ -33,6 +33,7 @@ public class GUI implements IEventListener{
   public JButton cobrarBtn;
   public JPanel pantalla;
   public Teclado teclado;
+  public JButton regresarBtn;
 
   public GUI(ATM service, Pantalla pantalla, Teclado teclado ) {
     this.service = service;
@@ -48,6 +49,8 @@ public class GUI implements IEventListener{
     this.dejarBilletesBtn = new JButton("Poner billetes");
     this.pantalla = new JPanel();
     this.teclado = teclado;
+    
+    this.regresarBtn = new JButton("Regresar al menu principal");
 
     this.init();
   }
@@ -59,6 +62,7 @@ public class GUI implements IEventListener{
     this.configurarTeclado();
     this.configurarDejarBilletesBtn();
     this.configurarTomarBilletesBtn();
+    this.configurarBotonRegresar();
     
     this.teclado.events.subscribe("numero", this);
     this.teclado.events.subscribe("cancelar", this);
@@ -70,6 +74,19 @@ public class GUI implements IEventListener{
     this.frame.setVisible(true);
     this.frame.setAlwaysOnTop(true);
     this.frame.requestFocus();
+  }
+  
+  public void configurarBotonRegresar() {
+    GridBagConstraints option1BtnLayoutSettings = new GridBagConstraints();
+    option1BtnLayoutSettings.gridx = 0;
+    option1BtnLayoutSettings.gridy = 0;
+    option1BtnLayoutSettings.gridwidth = 4;
+    option1BtnLayoutSettings.ipadx = 40;
+    option1BtnLayoutSettings.ipady = 10;
+    option1BtnLayoutSettings.insets = new java.awt.Insets(10, 10, 10, 10);
+    option1BtnLayoutSettings.anchor = GridBagConstraints.FIRST_LINE_START;
+    
+    this.frame.getContentPane().add(this.regresarBtn, option1BtnLayoutSettings);
   }
 
   public void colocarSesionActual(int sesion) {
@@ -124,7 +141,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion1Btn() {
     GridBagConstraints option1BtnLayoutSettings = new GridBagConstraints();
     option1BtnLayoutSettings.gridx = 0;
-    option1BtnLayoutSettings.gridy = 0;
+    option1BtnLayoutSettings.gridy = 1;
     option1BtnLayoutSettings.gridwidth = 1;
     option1BtnLayoutSettings.ipadx = 30;
     option1BtnLayoutSettings.ipady = 10;
@@ -135,7 +152,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion2Btn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 0;
-    optionBtnLayoutSettings.gridy = 1;
+    optionBtnLayoutSettings.gridy = 2;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;
@@ -146,7 +163,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion3Btn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 0;
-    optionBtnLayoutSettings.gridy = 2;
+    optionBtnLayoutSettings.gridy = 3;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;
@@ -157,7 +174,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion4Btn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 6;
-    optionBtnLayoutSettings.gridy = 0;
+    optionBtnLayoutSettings.gridy = 1;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;
@@ -168,7 +185,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion5Btn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 6;
-    optionBtnLayoutSettings.gridy = 1;
+    optionBtnLayoutSettings.gridy = 2;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;
@@ -179,7 +196,7 @@ public class GUI implements IEventListener{
   private void configurarOpcion6Btn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 6;
-    optionBtnLayoutSettings.gridy = 2;
+    optionBtnLayoutSettings.gridy = 3;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;
@@ -191,7 +208,7 @@ public class GUI implements IEventListener{
   private void configurarPantalla() {
     GridBagConstraints pantallaLayoutSettings = new GridBagConstraints();
     pantallaLayoutSettings.gridx = 1;
-    pantallaLayoutSettings.gridy = 0;
+    pantallaLayoutSettings.gridy = 1;
     pantallaLayoutSettings.gridwidth = 5;
     pantallaLayoutSettings.gridheight = 3;
     pantallaLayoutSettings.ipadx = 30;
@@ -225,7 +242,7 @@ public class GUI implements IEventListener{
   private void configurarTeclado() {
     GridBagConstraints tecladoLayoutSettings = new GridBagConstraints();
     tecladoLayoutSettings.gridx = 1;
-    tecladoLayoutSettings.gridy = 3;
+    tecladoLayoutSettings.gridy = 4;
     tecladoLayoutSettings.gridwidth = 1;
     tecladoLayoutSettings.gridheight = 6;
     tecladoLayoutSettings.ipadx = 30;
@@ -238,7 +255,7 @@ public class GUI implements IEventListener{
   private void configurarTomarBilletesBtn() {
     GridBagConstraints optionBtnLayoutSettings = new GridBagConstraints();
     optionBtnLayoutSettings.gridx = 6;
-    optionBtnLayoutSettings.gridy = 4;
+    optionBtnLayoutSettings.gridy = 5;
     optionBtnLayoutSettings.gridwidth = 1;
     optionBtnLayoutSettings.ipadx = 30;
     optionBtnLayoutSettings.ipady = 10;

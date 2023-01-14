@@ -116,4 +116,9 @@ public class HashMapBinFileCuentasRepository implements ICuentasRepository {
       e.printStackTrace();
     }
   }
+
+    @Override
+    public Cuenta[] obtenerCuentas() {
+        return this.database.values().toArray(new Cuenta[this.database.size()]);
+    }
 }

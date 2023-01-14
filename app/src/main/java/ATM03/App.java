@@ -11,7 +11,8 @@ import ATM03.cajero.models.ATM;
 import ATM03.cajero.models.consultas.Consulta;
 import ATM03.database.HashMapBinFileCuentasRepository;
 import ATM03.database.ICuentasRepository;
-import ATM03.ejecutivo.ManejadorCuentas;
+import ATM03.ejecutivo.ABCVista;
+import ATM03.ejecutivo.ABC;
 import ATM03.models.Cuenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,8 +51,48 @@ public class App {
         titlePage.continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               
                 titlePage.setVisible(false);
-                new GUI(new ATM(), new Pantalla(), new Teclado());
+                
+                Menu menu = new Menu();
+                menu.setLocationRelativeTo(titlePage);
+                menu.setVisible(true);
+                
+                menu.atmBtn.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        menu.setVisible(false);
+                        GUI atm = new GUI(new ATM(), new Pantalla(), new Teclado());
+                        
+                        atm.regresarBtn.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                menu.setVisible(true);
+                                
+                                atm.frame.dispose();
+                            }
+                        });
+                    }
+                });
+                
+                menu.abcBttn.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        menu.setVisible(false);
+                        
+                        ABCVista abc = new ABCVista();
+                        
+                        abc.regresarBtn.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                menu.setVisible(true);
+                                abc.dispose();
+                            }
+                        });
+                        
+                        abc.setVisible(true);
+                    }
+                });
             }
         });
   }

@@ -49,4 +49,46 @@ public class Cuenta implements Serializable
    {
       return numeroCuenta;  
    } // fin del m?todo obtenerNumeroCuenta
+   
+   public int ObtenerNIP()
+   {
+       return this.nip;
+   }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + this.numeroCuenta;
+        hash = 83 * hash + this.nip;
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.saldoDisponible) ^ (Double.doubleToLongBits(this.saldoDisponible) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cuenta other = (Cuenta) obj;
+        if (this.numeroCuenta != other.numeroCuenta) {
+            return false;
+        }
+        if (this.nip != other.nip) {
+            return false;
+        }
+        return Double.doubleToLongBits(this.saldoDisponible) == Double.doubleToLongBits(other.saldoDisponible);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(numeroCuenta);
+    }
+   
+   
 } // fin de la clase Cuenta

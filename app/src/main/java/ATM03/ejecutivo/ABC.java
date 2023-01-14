@@ -4,10 +4,10 @@ import ATM03.database.HashMapBinFileCuentasRepository;
 import ATM03.database.ICuentasRepository;
 import ATM03.models.Cuenta;
 
-public class ManejadorCuentas {
+public class ABC {
   ICuentasRepository cuentasRepository;
 
-  public ManejadorCuentas() {
+  public ABC() {
     this.cuentasRepository = HashMapBinFileCuentasRepository.obtenerInstancia("archivo.bin");
   }
 

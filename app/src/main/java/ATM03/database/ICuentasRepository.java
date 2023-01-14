@@ -7,4 +7,5 @@ public interface ICuentasRepository {
   boolean guardarNuevaCuenta(Cuenta cuenta);
   boolean actualizarCuenta(Cuenta cuenta);
   boolean eleminarCuenta(int numeroCuenta);
+  Cuenta[] obtenerCuentas();
 }
